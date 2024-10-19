@@ -47,5 +47,5 @@ namespace AbstractGeometry
 		public static extern IntPtr GetConsoleWindow();
 		[DllImport("user32.dll")]
 		public static extern IntPtr GetDC(IntPtr hwnd);
-	}
+	} 
 }
