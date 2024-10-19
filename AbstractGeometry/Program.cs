@@ -13,7 +13,6 @@ namespace AbstractGeometry
 	{
 		static void Main(string[] args)
 		{
-			// Получаем окно консоли
 			IntPtr hwnd = GetConsoleWindow();
 			Graphics graphics = Graphics.FromHwnd(hwnd);
 			System.Drawing.Rectangle window_rect = new System.Drawing.Rectangle
