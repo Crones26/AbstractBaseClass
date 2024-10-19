@@ -42,7 +42,8 @@ namespace AbstractGeometry
 		public override void Draw(PaintEventArgs e)
 		{
 			Pen pen = new Pen(Color, LineWidth);
-			Point[] points = {
+			Point[] points = 
+			{
 				new Point(StartX, StartY),
 				new Point(StartX + (int)(BaseLength / 2), StartY - (int)Height),
 				new Point(StartX + (int)BaseLength, StartY)
