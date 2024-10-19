@@ -22,6 +22,15 @@ namespace AbstractGeometry
 			);
 			PaintEventArgs e = new PaintEventArgs(graphics, window_rect);
 
+			//Rectangle rectangle = new Rectangle(150, 100, 100, 100, 3, System.Drawing.Color.Red);
+			//rectangle.Info(e);
+			//Square square = new Square(100, 350, 100, 3, System.Drawing.Color.Blue);
+			//square.Info(e);
+			//Triangle triangle = new Triangle(100, 100, 650, 200, 3, System.Drawing.Color.Purple); // X = 550, Y = 100
+			//triangle.Info(e);
+			//Circle circle = new Circle(50, 500, 100, 3, System.Drawing.Color.Green);
+			//circle.Info(e);
+
 			// Задаем смещение по оси Y
 			int yOffset = 200;
 			// Создаем и выводим прямоугольник
@@ -30,7 +39,7 @@ namespace AbstractGeometry
 			// Создаем квадрат с промежутком в 50 пикселей справа от прямоугольника
 			Square square = new Square(80, rectangle.StartX + (int)rectangle.Width + 50, rectangle.StartY, 3, System.Drawing.Color.Blue);
 			square.Info(e);
-			// Высчитываем координату Y для треугольника так, чтобы его основание совпадало с нижней границей квадрата
+			// Высчитываем координату Y для треугольника, чтобы его основание совпадало с нижней границей квадрата
 			int triangleStartY = square.StartY + (int)square.Side;
 			// Создаем треугольник с основанием на одном уровне с нижней границей квадрата
 			Triangle triangle = new Triangle(100, 80, square.StartX + (int)square.Side + 50, triangleStartY, 3, System.Drawing.Color.Green);
