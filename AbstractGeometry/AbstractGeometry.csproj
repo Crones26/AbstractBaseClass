@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CF3722CE-8C11-48F0-9297-90FCABC28B6E}</ProjectGuid>
+    <ProjectGuid>{2BDFE429-0FDD-4B3B-A67B-FF92E0DBE981}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>AbstractBaseClass</RootNamespace>
-    <AssemblyName>AbstractBaseClass</AssemblyName>
+    <RootNamespace>AbstractGeometry</RootNamespace>
+    <AssemblyName>AbstractGeometry</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,6 +35,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,12 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animal.cs" />
-    <Compile Include="Cat.cs" />
-    <Compile Include="HomeCat.cs" />
-    <Compile Include="Lion.cs" />
+    <Compile Include="Circle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rectangle.cs" />
+    <Compile Include="Shape.cs" />
+    <Compile Include="Square.cs" />
+    <Compile Include="Triangle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
