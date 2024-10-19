@@ -27,10 +27,12 @@ namespace AbstractGeometry
 		public override double GetArea() => Math.PI * Math.Pow(Radius, 2);
 		public override double GetPerimeter() => 2 * Math.PI * Radius;
 
-		public override void Draw(PaintEventArgs e)
+		public override void Draw(Graphics graphics)
 		{
-			Pen pen = new Pen(Color, LineWidth);
-			e.Graphics.DrawEllipse(pen, StartX, StartY, (int)(2 * Radius), (int)(2 * Radius));
+			Pen pen = new Pen(color, LineWidth);
+			Brush brush = new SolidBrush(color);
+			graphics.FillEllipse(brush, StartX, StartY, (int)(2 * Radius), (int)(2 * Radius));
+			graphics.DrawEllipse(pen, StartX, StartY, (int)(2 * Radius), (int)(2 * Radius));
 		}
 	}
 }

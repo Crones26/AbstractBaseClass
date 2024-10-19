@@ -39,15 +39,18 @@ namespace AbstractGeometry
 			return BaseLength + 2 * side;
 		}
 
-		public override void Draw(PaintEventArgs e)
+		public override void Draw(Graphics graphics)
 		{
-			Pen pen = new Pen(Color, LineWidth);
-			Point[] points = {
+			Pen pen = new Pen(color, LineWidth);
+			Brush brush = new SolidBrush(color);
+			Point[] points = 
+			{
 				new Point(StartX, StartY),
 				new Point(StartX + (int)(BaseLength / 2), StartY - (int)Height),
 				new Point(StartX + (int)BaseLength, StartY)
 			};
-			e.Graphics.DrawPolygon(pen, points);
+			graphics.FillPolygon(brush, points);
+			graphics.DrawPolygon(pen, points);
 		}
 	}
 }

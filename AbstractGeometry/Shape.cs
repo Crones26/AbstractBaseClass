@@ -19,18 +19,20 @@ namespace AbstractGeometry
 		protected readonly double MIN_SIZE = 32;
 		protected readonly double MAX_SIZE = 800;
 
-		int startX;
-		int startY;
-		int lineWidth;
+		protected int startX;
+		protected int startY;
+		protected int lineWidth;
+		protected Color color;
+
 		public int StartX
 		{
-			//RocketShip
 			get => startX;
 			set => startX =
 				value < MIN_START_X ? MIN_START_X :
 				value > MAX_START_X ? MAX_START_X :
 				value;
 		}
+
 		public int StartY
 		{
 			get => startY;
@@ -39,6 +41,7 @@ namespace AbstractGeometry
 				value > MAX_START_Y ? MAX_START_Y :
 				value;
 		}
+
 		public int LineWidth
 		{
 			get => lineWidth;
@@ -47,27 +50,29 @@ namespace AbstractGeometry
 				value > MAX_LINE_WIDTH ? MAX_LINE_WIDTH :
 				value;
 		}
+
 		public double SizeFilter(double size) =>
 			size < MIN_SIZE ? MIN_SIZE :
 			size > MAX_SIZE ? MAX_SIZE :
 			size;
+
 		public Shape(int startX, int startY, int lineWidth, Color color)
 		{
 			StartX = startX;
 			StartY = startY;
 			LineWidth = lineWidth;
-			Color = color;
+			this.color = color;
 		}
-		public Color Color { get; set; }
+
 		public abstract double GetArea();
 		public abstract double GetPerimeter();
-		public abstract void Draw(PaintEventArgs e);
-		public virtual void Info(PaintEventArgs e)
+		public abstract void Draw(Graphics graphics);
+
+		public virtual void Info(Graphics graphics)
 		{
-			Draw(e);
+			Draw(graphics);
 			Console.WriteLine($"Площадь фигуры: {GetArea()}");
 			Console.WriteLine($"Периметр фигуры: {GetPerimeter()}");
-			
 		}
 	}
 }
