@@ -10,6 +10,6 @@ namespace AbstractGeometry
 	internal interface IHaveRadius
 	{
 		double GetRadius();
-		void DrawRadius(PaintEventArgs e);
+		void DrawRadius(System.Windows.Forms.PaintEventArgs e);
 	}
 }
