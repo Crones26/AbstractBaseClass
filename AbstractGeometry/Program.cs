@@ -45,7 +45,7 @@ namespace AbstractGeometry
 			Triangle triangle = new Triangle(100, 80, square.StartX + (int)square.Side + 50, triangleStartY, 3, System.Drawing.Color.Green);
 			triangle.Info(e);
 			// Создаем круг с промежутком в 50 пикселей справа от треугольника
-			Circle circle = new Circle(50, triangle.StartX + (int)triangle.BaseLength + 50, square.StartY, 3, System.Drawing.Color.Purple);
+			Circle circle = new Circle(75, triangle.StartX + (int)triangle.BaseLength + 50, square.StartY, 4, System.Drawing.Color.Purple);
 			circle.Info(e);
 		}
 

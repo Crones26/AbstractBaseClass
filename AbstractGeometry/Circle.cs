@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace AbstractGeometry
 {
-	internal class Circle : Shape
+	internal class Circle : Shape, IHaveDiameter, IHaveRadius
 	{
 		double radius;
 
@@ -31,6 +31,27 @@ namespace AbstractGeometry
 		{
 			Pen pen = new Pen(Color, LineWidth);
 			e.Graphics.DrawEllipse(pen, StartX, StartY, (int)(2 * Radius), (int)(2 * Radius));
+			DrawDiameter(e); // Рисуем диаметр
+			DrawRadius(e);   // Рисуем радиус
+		}
+
+		// Реализация интерфейса IHaveDiameter
+		public double GetDiameter() => 2 * Radius;
+
+		public void DrawDiameter(PaintEventArgs e)
+		{
+			Pen pen = new Pen(Color, 2);
+			int diameter = (int)GetDiameter();
+			e.Graphics.DrawLine(pen, StartX, StartY + (int)Radius, StartX + diameter, StartY + (int)Radius);
+		}
+
+		// Реализация интерфейса IHaveRadius
+		public double GetRadius() => Radius;
+
+		public void DrawRadius(PaintEventArgs e)
+		{
+			Pen pen = new Pen(Color, 1);
+			e.Graphics.DrawLine(pen, StartX + (int)Radius, StartY + (int)Radius, StartX + (int)Radius, StartY);
 		}
 	}
 }
