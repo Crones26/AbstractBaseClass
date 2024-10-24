@@ -26,7 +26,7 @@ namespace AbstractGeometry
 			{
 				new Point(StartX, StartY),
 				new Point(StartX + (int)TriangleBase, StartY),
-				new Point(StartX, StartY + (int)TriangleSide)
+				new Point(StartX, StartY - (int)TriangleSide)
 			};
 			e.Graphics.DrawPolygon(pen, points);
 		}

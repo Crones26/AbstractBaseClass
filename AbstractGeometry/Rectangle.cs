@@ -44,10 +44,16 @@ namespace AbstractGeometry
 			e.Graphics.DrawRectangle(pen, StartX, StartY, (int)Width, (int)Height);
 			DrawDiagonal(e);
 		}
-
 		public void DrawDiagonal(PaintEventArgs e)
 		{
-			e.Graphics.DrawLine (new Pen(Color,1),StartX,StartY, StartX + (int)Width, StartY + (int)Height);
+			e.Graphics.DrawLine(new Pen(Color, 1), StartX, StartY, StartX + (int)Width, StartY + (int)Height);
+		}
+		public override void Info(PaintEventArgs e)
+		{
+			Console.WriteLine(this.GetType());
+			Console.WriteLine($"Ширина прямоугольника: {Width}");
+			Console.WriteLine($"Высота прямоугольника: {Height}");
+			base.Info(e);
 		}
 	}
 }
