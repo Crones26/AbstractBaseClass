@@ -28,7 +28,7 @@ namespace AbstractGeometry
 			Square square = new Square(75, 550, 50, 3, Color.DarkBlue);
 			square.Info(e);
 
-			Circle circle = new Circle(50, 700, 50, 3, Color.Purple);
+			Circle circle = new Circle(60, 700, 50, 4, Color.Purple);
 			circle.Info(e);
 
 			IsoscalesTriangle i_triangle = new IsoscalesTriangle(50, 100, 400, 200, 3, Color.Aqua);
