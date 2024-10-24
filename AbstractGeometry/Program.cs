@@ -35,7 +35,7 @@ namespace AbstractGeometry
 			Circle circle = new Circle(50, 700, 50, 3, Color.Purple);
 			circle.Info(e);
 
-			IsoscalesTriangle i_triangle = new IsoscalesTriangle(70, 100, 400, 200, 3, Color.Aqua);
+			IsoscalesTriangle i_triangle = new IsoscalesTriangle(50, 100, 400, 200, 3, Color.Aqua);
 			i_triangle.Info(e);
 
 			EquilateralTriangle e_triangle = new EquilateralTriangle(100, 550, 200, 3, Color.GreenYellow);
