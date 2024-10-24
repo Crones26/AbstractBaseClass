@@ -12,46 +12,47 @@ namespace AbstractGeometry
 	internal class Program
 	{
 		static void Main(string[] args)
-		{
-			IntPtr hwnd = GetConsoleWindow();
-			Graphics graphics = Graphics.FromHwnd(hwnd);
-			System.Drawing.Rectangle window_rect = new System.Drawing.Rectangle
-			(
-				Console.WindowLeft, Console.WindowTop,
-				Console.WindowWidth, Console.WindowHeight
-			);
-			PaintEventArgs e = new PaintEventArgs(graphics, window_rect);
+        {
+            IntPtr hwnd = GetConsoleWindow();
+            Graphics graphics = Graphics.FromHwnd(hwnd);
+            System.Drawing.Rectangle window_rect = new System.Drawing.Rectangle
+            (
+                Console.WindowLeft, Console.WindowTop,
+                Console.WindowWidth, Console.WindowHeight
+            );
+            PaintEventArgs e = new PaintEventArgs(graphics, window_rect);
 
-			//Rectangle rectangle = new Rectangle(150, 100, 100, 100, 3, System.Drawing.Color.Red);
-			//rectangle.Info(e);
-			//Square square = new Square(100, 350, 100, 3, System.Drawing.Color.Blue);
-			//square.Info(e);
-			//Triangle triangle = new Triangle(100, 100, 650, 200, 3, System.Drawing.Color.Purple); // X = 550, Y = 100
-			//triangle.Info(e);
-			//Circle circle = new Circle(50, 500, 100, 3, System.Drawing.Color.Green);
-			//circle.Info(e);
+            int startX = 50; 
+            int startY = 300;
 
-			// Задаем смещение по оси Y
-			int yOffset = 200;
-			// Создаем и выводим прямоугольник
-			Rectangle rectangle = new Rectangle(100, 50, 50, 50 + yOffset, 3, System.Drawing.Color.Red);
-			rectangle.Info(e);
-			// Создаем квадрат с промежутком в 50 пикселей справа от прямоугольника
-			Square square = new Square(80, rectangle.StartX + (int)rectangle.Width + 50, rectangle.StartY, 3, System.Drawing.Color.Blue);
-			square.Info(e);
-			// Высчитываем координату Y для треугольника, чтобы его основание совпадало с нижней границей квадрата
-			int triangleStartY = square.StartY + (int)square.Side;
-			// Создаем треугольник с основанием на одном уровне с нижней границей квадрата
-			Triangle triangle = new Triangle(100, 80, square.StartX + (int)square.Side + 50, triangleStartY, 3, System.Drawing.Color.Green);
-			triangle.Info(e);
-			// Создаем круг с промежутком в 50 пикселей справа от треугольника
-			Circle circle = new Circle(75, triangle.StartX + (int)triangle.BaseLength + 50, square.StartY, 4, System.Drawing.Color.Purple);
-			circle.Info(e);
-		}
+            // Прямоугольник
+            Rectangle rectangle = new Rectangle(100, 50, startX, startY, 3, System.Drawing.Color.Red);
+            rectangle.Info(e);
+            // Квадрат
+            startX += 100 + 50;
+            Square square = new Square(75, startX, startY, 3, Color.DarkBlue);
+            square.Info(e);
+            // Круг
+            startX += 75 + 50; 
+            Circle circle = new Circle(50, startX, startY, 3, Color.Purple);
+            circle.Info(e);
+            // Равнобедренный треугольник
+            startX += 100 + 50;
+            IsoscalesTriangle i_triangle = new IsoscalesTriangle(60, 90, startX, startY, 3, Color.Aqua);
+            i_triangle.Info(e);
+            // Равносторонний треугольник
+            startX += 50 + 50;
+            EquilateralTriangle e_triangle = new EquilateralTriangle(90, startX, startY, 3, Color.GreenYellow);
+            e_triangle.Info(e);
+            // Прямоугольный треугольник
+            startX += 70 + 60;
+            RightTriangle right_triangle = new RightTriangle(60, 90, startX, startY, 3, Color.Orange);
+            right_triangle.Info(e);
+        }
 
-		[DllImport("kernel32.dll")]
-		public static extern IntPtr GetConsoleWindow();
-		[DllImport("user32.dll")]
-		public static extern IntPtr GetDC(IntPtr hwnd);
-	}
+        [DllImport("kernel32.dll")]
+        public static extern IntPtr GetConsoleWindow();
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetDC(IntPtr hwnd);
+    }
 }

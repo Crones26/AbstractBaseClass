@@ -38,11 +38,15 @@ namespace AbstractGeometry
 		// Реализация интерфейса IHaveDiameter
 		public double GetDiameter() => 2 * Radius;
 
-		public void DrawDiameter(PaintEventArgs e)
+		public void DrawDiameter(System.Windows.Forms.PaintEventArgs e)
 		{
-			Pen pen = new Pen(Color, 2);
-			int diameter = (int)GetDiameter();
-			e.Graphics.DrawLine(pen, StartX, StartY + (int)Radius, StartX + diameter, StartY + (int)Radius);
+			int dx = (int)(Radius * (1 - 1 / Math.Sqrt(2)));
+			e.Graphics.DrawLine
+				(
+					new Pen(Color, 2),
+					StartX + dx, StartY + dx,
+					StartX + (int)GetDiameter() - dx, StartY + (int)GetDiameter() - dx
+				);
 		}
 
 		// Реализация интерфейса IHaveRadius
