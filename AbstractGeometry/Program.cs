@@ -13,10 +13,6 @@ namespace AbstractGeometry
 	{
 		static void Main(string[] args)
 		{
-			// Устанавливаем размер окна консоли
-			Console.SetWindowSize(140, 30); // Устанавливаем ширину и высоту окна 
-			Console.SetBufferSize(140, 30); // Устанавливаем размер буфера консоли
-
 			IntPtr hwnd = GetConsoleWindow();
 			Graphics graphics = Graphics.FromHwnd(hwnd);
 			System.Drawing.Rectangle window_rect = new System.Drawing.Rectangle
