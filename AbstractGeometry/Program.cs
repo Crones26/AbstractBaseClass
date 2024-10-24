@@ -15,7 +15,7 @@ namespace AbstractGeometry
 		{
 			// Устанавливаем размер окна консоли
 			Console.SetWindowSize(140, 30); // Устанавливаем ширину и высоту окна 
-			Console.SetBufferSize(160, 50); // Устанавливаем размер буфера консоли
+			Console.SetBufferSize(140, 30); // Устанавливаем размер буфера консоли
 
 			IntPtr hwnd = GetConsoleWindow();
 			Graphics graphics = Graphics.FromHwnd(hwnd);
